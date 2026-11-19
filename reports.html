@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reports Management</title>
+
+    <!-- Website Favicon -->
+    <link rel="icon" type="image/png" href="image/eg-favicon.png">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Reports CSS -->
+    <link rel="stylesheet" href="css/reports.css">
+
+    <!-- Theme -->
+    <script src="js/theme.js"></script>
+</head>
+
+<body>
+
+    <div class="dashboard-wrapper">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">
+                    <img src="image/eg-favicon.png" alt="EG Brand Icon">
+                </div>
+                <span>EG <small>Lecturer Portal</small></span>
+            </div>
+
+            <nav class="sidebar-menu">
+
+                <p class="menu-title">MAIN MENU</p>
+
+                <a href="dashboard.html" class="menu-link">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="students.html" class="menu-link">
+                    <i class="bi bi-people"></i>
+                    <span>Students</span>
+                </a>
+
+                <a href="courses.html" class="menu-link">
+                    <i class="bi bi-book"></i>
+                    <span>Courses</span>
+                </a>
+
+                <a href="attendance.html" class="menu-link">
+                    <i class="bi bi-calendar-check"></i>
+                    <span>Attendance</span>
+                </a>
+
+                <a href="assignments.html" class="menu-link">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Assignments</span>
+                </a>
+
+                <a href="reports.html" class="menu-link active">
+                    <i class="bi bi-bar-chart"></i>
+                    <span>Reports</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- SIDEBAR OVERLAY -->
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="main-content" id="overview">
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <!-- MOBILE MENU BUTTON -->
+
+                    <button class="menu-toggle" id="menuToggle"
+                            type="button"
+                            aria-label="Open navigation menu"
+                            aria-expanded="false">
+
+                        <i class="bi bi-list"></i>
+
+                    </button>
+
+                    <div>
+                        <h5>Reports Management</h5>
+                        <p>View and generate academic reports.</p>
+                    </div>
+
+                </div>
+
+
+                <!-- LECTURER PROFILE -->
+
+                <div class="topbar-right">
+
+                    <div class="profile-wrapper">
+
+                        <button class="profile profile-trigger" id="profileButton" type="button" aria-expanded="false">
+
+                            <div class="profile-avatar" id="profileAvatar">L</div>
+
+                            <div class="profile-info">
+                                <h6 id="lecturerName">Lecturer</h6>
+                                <p>Lecturer</p>
+                            </div>
+
+                            <i class="bi bi-chevron-down profile-arrow"></i>
+
+                        </button>
+
+                        <!-- PROFILE DROPDOWN -->
+                        <div class="profile-dropdown" id="profileDropdown">
+
+                            <div class="profile-dropdown-header">
+
+                                <div class="profile-avatar profile-dropdown-avatar" id="dropdownAvatar">
+                                    L
+                                </div>
+
+                                <div>
+                                    <h6 id="dropdownLecturerName">Lecturer</h6>
+                                    <p>Lecturer Account</p>
+                                </div>
+
+                            </div>
+
+                            <div class="profile-dropdown-divider"></div>
+
+                            <button type="button" class="profile-menu-item" id="viewProfileButton">
+                                <i class="bi bi-person"></i>
+                                <span>View Profile</span>
+                            </button>
+
+                            <button type="button" class="profile-menu-item" id="changePictureButton">
+                                <i class="bi bi-camera"></i>
+                                <span>Change Profile Picture</span>
+                            </button>
+
+                            <div class="profile-dropdown-divider"></div>
+
+                            <button type="button" class="profile-menu-item profile-logout" id="profileLogoutButton">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span>Log Out</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <input type="file" id="profilePictureInput" accept="image/*" hidden>
+
+                </div>
+
+            </header>
+
+
+            <!-- PAGE BANNER -->
+
+            <section class="page-banner">
+
+                <div class="banner-text">
+                    <span class="banner-label">ACADEMIC OVERVIEW</span>
+
+                    <h2>Reports & Analytics</h2>
+
+                    <p>
+                        Monitor student performance, attendance and academic progress.
+                    </p>
+                </div>
+
+                <div class="banner-decoration">
+                    <i class="bi bi-bar-chart-line"></i>
+                </div>
+
+            </section>
+
+
+            <!-- SUMMARY CARDS -->
+
+            <section class="summary-grid">
+
+                <div class="summary-card">
+
+                    <div class="summary-icon pink-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+
+                    <div>
+                        <p>Total Students</p>
+                        <h3 id="totalStudents">0</h3>
+                        <span>Registered students</span>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon green-icon">
+                        <i class="bi bi-book"></i>
+                    </div>
+
+                    <div>
+                        <p>Total Courses</p>
+                        <h3 id="totalCourses">0</h3>
+                        <span>Available courses</span>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon peach-icon">
+                        <i class="bi bi-calendar-check"></i>
+                    </div>
+
+                    <div>
+                        <p>Attendance Records</p>
+                        <h3 id="totalAttendance">0</h3>
+                        <span>Total recorded attendance</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- GENERATE REPORT PANEL -->
+
+            <section class="student-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <h5>Generate Report</h5>
+                        <p>Select a report category to view the available information.</p>
+                    </div>
+
+                    <div class="panel-heading-icon">
+                        <i class="bi bi-file-earmark-bar-graph"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="report-generator">
+
+                    <div class="form-group">
+
+                        <label for="reportType">Report Category</label>
+
+                        <select class="form-select" id="reportType">
+
+                            <option value="">Select Report Category</option>
+                            <option value="students">Student Report</option>
+                            <option value="courses">Course Report</option>
+                            <option value="attendance">Attendance Report</option>
+                            <option value="assignments">Assignment Report</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="reportDate">Report Date</label>
+
+                        <input type="date" class="form-control" id="reportDate">
+
+                    </div>
+
+
+                    <button type="button" class="generate-btn" id="generateReportButton">
+
+                        <i class="bi bi-file-earmark-text"></i>
+                        Generate Report
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- REPORT RESULTS PANEL -->
+
+            <section class="student-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <h5>Report Results</h5>
+                        <p>Generated report information will appear here.</p>
+                    </div>
+
+                </div>
+
+
+                <div id="reportResults">
+
+                    <div class="empty-state" id="reportEmptyState">
+
+                        <i class="bi bi-file-earmark-bar-graph"></i>
+
+                        <h6>No Report Generated</h6>
+
+                        <p>
+                            Select a report category and click Generate Report
+                            to view the results.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="report-actions" id="reportActions" style="display: none;">
+
+                    <button type="button" class="print-btn" id="printReportButton">
+
+                        <i class="bi bi-printer"></i>
+                        Print Report
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- FOOTER -->
+
+            <footer class="page-footer">
+
+                <p>© 2026 EG Academic Management System. All rights reserved.</p>
+
+            </footer>
+
+
+            <!-- VIEW & EDIT LECTURER PROFILE MODAL -->
+            <div class="profile-modal-overlay" id="profileModal">
+                <div class="profile-modal">
+                    <button type="button" class="profile-modal-close" id="closeProfileModal" aria-label="Close profile modal">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+
+                    <div class="profile-modal-heading">
+                        <div class="profile-modal-avatar" id="modalProfileAvatar">L</div>
+                        <h4 id="modalLecturerName">Lecturer</h4>
+                        <p id="modalProfileSubtitle">Lecturer Profile</p>
+                    </div>
+
+                    <!-- VIEW MODE -->
+                    <div id="profileViewMode">
+                        <div class="profile-modal-details">
+                            <div class="profile-detail">
+                                <span>Full Name</span>
+                                <strong id="viewFullName">-</strong>
+                            </div>
+                            <div class="profile-detail">
+                                <span>Username</span>
+                                <strong id="viewUsername">-</strong>
+                            </div>
+                            <div class="profile-detail">
+                                <span>Staff / Lecturer ID</span>
+                                <strong id="viewLecturerId">-</strong>
+                            </div>
+                            <div class="profile-detail">
+                                <span>Email Address</span>
+                                <strong id="viewEmail">-</strong>
+                            </div>
+                            <div class="profile-detail">
+                                <span>Phone Number</span>
+                                <strong id="viewPhone">-</strong>
+                            </div>
+                            <div class="profile-detail">
+                                <span>Department</span>
+                                <strong id="viewDepartment">-</strong>
+                            </div>
+                        </div>
+
+                        <div class="profile-modal-actions">
+                            <button type="button" class="profile-edit-button" id="editProfileToggleButton">
+                                <i class="bi bi-pencil-square"></i>
+                                Edit Profile
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- EDIT MODE -->
+                    <form id="profileEditForm" class="profile-edit-form" style="display: none;">
+                        <div class="profile-form-group">
+                            <label for="editFullName">Full Name</label>
+                            <input type="text" id="editFullName" class="profile-input" required>
+                        </div>
+
+                        <div class="profile-form-group">
+                            <label for="editLecturerId">Staff / Lecturer ID</label>
+                            <input type="text" id="editLecturerId" class="profile-input">
+                        </div>
+
+                        <div class="profile-form-group">
+                            <label for="editEmail">Email Address</label>
+                            <input type="email" id="editEmail" class="profile-input">
+                        </div>
+
+                        <div class="profile-form-group">
+                            <label for="editPhone">Phone Number</label>
+                            <input type="text" id="editPhone" class="profile-input">
+                        </div>
+
+                        <div class="profile-form-group">
+                            <label for="editDepartment">Department</label>
+                            <input type="text" id="editDepartment" class="profile-input">
+                        </div>
+
+                        <div class="profile-form-actions">
+                            <button type="button" class="profile-cancel-button" id="cancelEditProfileButton">
+                                Cancel
+                            </button>
+                            <button type="submit" class="profile-save-button" id="saveProfileButton">
+                                <i class="bi bi-check-lg"></i>
+                                Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Reports JS -->
+    <script src="js/reports.js"></script>
+
+</body>
+</html>

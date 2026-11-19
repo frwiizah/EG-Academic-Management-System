@@ -1,0 +1,587 @@
+/* ========================================
+   GENERAL SETTINGS
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #F8F6F4;
+    color: #393442;
+    min-height: 100vh;
+}
+
+
+/* ========================================
+   MAIN CONTAINER
+======================================== */
+
+.login-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* ========================================
+   CENTERED LOGIN SECTION
+======================================== */
+
+.login-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 15px;
+    position: relative;
+    background: #F8F6F4;
+}
+
+.auth-wrapper {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ========================================
+   TOP HEADER (OUTSIDE CARD LIKE PICTURE)
+======================================== */
+
+.top-header {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.app-logo-badge {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 12px;
+    border-radius: 16px;
+    background: #E8B8C4;
+    color: #393442;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 6px 16px rgba(150, 112, 128, 0.2);
+    overflow: hidden;
+    padding: 4px;
+}
+
+.app-logo-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.top-header h2 {
+    font-size: 23px;
+    font-weight: 700;
+    color: #393442;
+    margin-bottom: 4px;
+}
+
+.top-header p {
+    font-size: 13px;
+    color: #69535D;
+    margin: 0;
+}
+
+
+/* ========================================
+   SOFT PINK CONTAINER BOX
+======================================== */
+
+.login-box {
+    width: 100%;
+    background: #E8B8C4;
+    padding: 22px 24px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ========================================
+   FORM INPUTS & ICONS
+======================================== */
+
+.form-label {
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #393442;
+}
+
+.uppercase-label {
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.form-control {
+    height: 40px;
+    border: 1px solid #D8C2CB;
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 13px;
+    background: #FFFFFF;
+    color: #393442;
+}
+
+.form-control:focus {
+    border-color: #967080;
+    box-shadow: 0 0 0 2px rgba(150, 112, 128, 0.2);
+    outline: none;
+}
+
+.input-icon-wrapper {
+    position: relative;
+}
+
+.input-left-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #967080;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.form-control.with-left-icon {
+    padding-left: 36px;
+}
+
+
+/* ========================================
+   ACCOUNT TYPE BUTTONS
+======================================== */
+
+.role-btn {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #D8C2CB;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #393442;
+    transition: 0.2s;
+}
+
+.role-btn:hover {
+    background: #FFFFFF;
+    color: #393442;
+}
+
+.btn-check:checked + .role-btn {
+    background: #393442;
+    border-color: #393442;
+    color: #FFFFFF;
+}
+
+
+/* ========================================
+   PASSWORD TOGGLE
+======================================== */
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 45px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    color: #967080;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-password i {
+    font-size: 15px;
+}
+
+
+/* ========================================
+   ERROR & SUCCESS MESSAGES
+======================================== */
+
+.error-message {
+    display: none;
+    color: #C0392B;
+    background: #FCE8E6;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 11.5px;
+    margin-top: 8px;
+}
+
+.error-message.success-message {
+    color: #1E6F50;
+    background: #E3F7ED;
+}
+
+
+/* ========================================
+   PRIMARY SIGN IN PILL BUTTON
+======================================== */
+
+.login-button.pill-button {
+    width: 100%;
+    height: 46px;
+    background: #393442;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 6px 16px rgba(57, 52, 66, 0.2);
+    transition: 0.25s;
+}
+
+.login-button.pill-button:hover {
+    background: #51495B;
+    transform: translateY(-1px);
+}
+
+.arrow-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+
+/* ========================================
+   OR DIVIDER
+======================================== */
+
+.or-divider {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 14px 0;
+    color: #967080;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #DFD4DA;
+}
+
+.or-divider span {
+    padding: 0 12px;
+}
+
+
+/* ========================================
+   BOTTOM SIDE-BY-SIDE ACTION BUTTONS
+======================================== */
+
+.bottom-action-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.secondary-pill-btn {
+    height: 42px;
+    background: #FFFFFF;
+    border: 1px solid #D8C2CB;
+    border-radius: 12px;
+    color: #393442;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: 0.2s;
+}
+
+.secondary-pill-btn:hover {
+    background: #F4E4E8;
+    border-color: #967080;
+}
+
+
+/* ========================================
+   DEMO LOGIN NOTE
+======================================== */
+
+.demo-login-note {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid #D8C2CB;
+    border-radius: 10px;
+    padding: 8px 10px;
+    margin-top: 12px;
+    font-size: 11px;
+}
+
+.demo-login-heading {
+    color: #69535D;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.demo-account {
+    background: #FFFFFF;
+    border-radius: 6px;
+    padding: 4px 8px;
+    margin-top: 4px;
+    color: #69535D;
+}
+
+.demo-account strong {
+    color: #393442;
+}
+
+.demo-account span {
+    color: #967080;
+    font-weight: 600;
+}
+
+
+/* ========================================
+   COPYRIGHT
+======================================== */
+
+.copyright {
+    margin-top: 18px;
+    text-align: center;
+    color: #AAA4AD;
+    font-size: 10.5px;
+}
+
+
+/* ========================================
+   GLOBAL THEME BUTTON
+======================================== */
+
+.theme-toggle {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    background: #FFFFFF;
+    color: #393442;
+    border: 1px solid #E2DCE2;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.theme-toggle:hover {
+    background: #E8B8C4;
+    transform: translateY(-1px);
+}
+
+
+/* ========================================
+   GLOBAL DARK MODE - LOGIN PAGE
+======================================== */
+
+html[data-theme="dark"] body,
+html[data-theme="dark"] .login-section {
+    background-color: #211F29;
+    color: #F5F0F4;
+}
+
+html[data-theme="dark"] .app-logo-badge {
+    background: #302C39;
+    color: #E8B8C4;
+    border: 1px solid #51495B;
+}
+
+html[data-theme="dark"] .top-header h2 {
+    color: #F5F0F4;
+}
+
+html[data-theme="dark"] .top-header p {
+    color: #B9B2C0;
+}
+
+html[data-theme="dark"] .login-box {
+    background: #302C39;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+html[data-theme="dark"] .form-label {
+    color: #E9E1EA;
+}
+
+html[data-theme="dark"] .form-control {
+    background: #211F29;
+    color: #FFFFFF;
+    border-color: #51495B;
+}
+
+html[data-theme="dark"] .form-control::placeholder {
+    color: #A59CAB;
+}
+
+html[data-theme="dark"] .form-control:focus {
+    background: #211F29;
+    border-color: #D99AAA;
+    color: #FFFFFF;
+    box-shadow: 0 0 0 2px rgba(217, 154, 170, 0.2);
+}
+
+html[data-theme="dark"] .input-left-icon,
+html[data-theme="dark"] .toggle-password {
+    color: #E8B8C4;
+}
+
+html[data-theme="dark"] .role-btn {
+    background: #211F29;
+    border-color: #51495B;
+    color: #E9E1EA;
+}
+
+html[data-theme="dark"] .btn-check:checked + .role-btn {
+    background: #D99AAA;
+    border-color: #D99AAA;
+    color: #302634;
+}
+
+html[data-theme="dark"] .login-button.pill-button {
+    background: #D99AAA;
+    color: #302634;
+}
+
+html[data-theme="dark"] .login-button.pill-button:hover {
+    background: #E8B8C4;
+}
+
+html[data-theme="dark"] .arrow-circle {
+    background: rgba(48, 38, 52, 0.15);
+}
+
+html[data-theme="dark"] .or-divider {
+    color: #B9B2C0;
+}
+
+html[data-theme="dark"] .or-divider::before,
+html[data-theme="dark"] .or-divider::after {
+    border-bottom-color: #3E384B;
+}
+
+html[data-theme="dark"] .secondary-pill-btn {
+    background: #302C39;
+    border-color: #51495B;
+    color: #F5F0F4;
+}
+
+html[data-theme="dark"] .secondary-pill-btn:hover {
+    background: #3E384B;
+    border-color: #D99AAA;
+}
+
+html[data-theme="dark"] .theme-toggle {
+    background: #393442;
+    color: #FFFFFF;
+    border-color: #62586B;
+}
+
+html[data-theme="dark"] .error-message {
+    background: #492D35;
+    color: #FFB9B9;
+}
+
+html[data-theme="dark"] .error-message.success-message {
+    background: #1E3F33;
+    color: #9EE6C7;
+}
+
+html[data-theme="dark"] .demo-login-note {
+    background: #211F29;
+    border-color: #51495B;
+}
+
+html[data-theme="dark"] .demo-login-heading {
+    color: #E8CBDC;
+}
+
+html[data-theme="dark"] .demo-account {
+    background: #302C39;
+    color: #C2B9C9;
+}
+
+html[data-theme="dark"] .demo-account strong {
+    color: #F5F0F4;
+}
+
+html[data-theme="dark"] .demo-account span {
+    color: #E8CBDC;
+}
+
+html[data-theme="dark"] .copyright {
+    color: #827B8A;
+}
+
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+    .login-section {
+        padding: 60px 15px 25px;
+        justify-content: flex-start;
+    }
+
+    .theme-toggle {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    #themeText {
+        display: none;
+    }
+
+    .theme-toggle {
+        padding: 7px 9px;
+        border-radius: 50%;
+    }
+}

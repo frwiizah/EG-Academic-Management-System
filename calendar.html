@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calendar</title>
+
+    <!-- Website Favicon -->
+    <link rel="icon" type="image/png" href="image/eg-favicon.png">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Calendar CSS -->
+    <link rel="stylesheet" href="css/calendar.css">
+
+    <!-- Theme -->
+    <script src="js/theme.js"></script>
+</head>
+
+<body>
+
+<div class="dashboard-wrapper">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">
+                <img src="image/eg-favicon.png" alt="EG Brand Icon">
+            </div>
+            <span>EG <small>Student Portal</small></span>
+        </div>
+
+        <div class="sidebar-menu">
+
+            <p class="menu-title">MENU</p>
+
+            <a href="student-dashboard.html" class="menu-link">
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="my-courses.html" class="menu-link">
+                <i class="bi bi-book"></i>
+                <span>My Courses</span>
+            </a>
+
+            <a href="calendar.html" class="menu-link active">
+                <i class="bi bi-calendar3"></i>
+                <span>Calendar</span>
+            </a>
+
+            <a href="student-assignments.html" class="menu-link">
+                <i class="bi bi-file-earmark-text"></i>
+                <span>Assignments</span>
+            </a>
+
+            <a href="performance.html" class="menu-link">
+                <i class="bi bi-bar-chart"></i>
+                <span>My Performance</span>
+            </a>
+
+            <a href="student-settings.html" class="menu-link">
+                <i class="bi bi-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- MOBILE SIDEBAR OVERLAY -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle Menu">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div>
+                    <h5>My Calendar</h5>
+                    <p>Organize your schedule and events.</p>
+                </div>
+
+            </div>
+
+            <div class="topbar-right">
+
+                <!-- NOTIFICATION -->
+                <div class="notification-wrapper">
+
+                    <button class="notification-btn" id="notificationButton" type="button" aria-label="Notifications">
+                        <i class="bi bi-bell"></i>
+                        <span id="notificationBadge"></span>
+                    </button>
+
+                    <div class="notification-panel" id="notificationPanel">
+
+                        <div class="notification-header">
+
+                            <div>
+                                <h6>Notifications</h6>
+                                <p id="notificationCount">You have no new notifications</p>
+                            </div>
+
+                            <button type="button" id="markAllRead">
+                                Mark all as read
+                            </button>
+
+                        </div>
+
+                        <div class="notification-list" id="notificationList">
+                        </div>
+
+                        <div class="notification-empty" id="notificationEmpty" hidden>
+                            <i class="bi bi-bell-slash"></i>
+                            <p>No notifications yet.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- STUDENT PROFILE -->
+                <div class="profile-wrapper">
+
+                    <button class="profile profile-trigger" id="profileButton" type="button">
+
+                        <div class="profile-avatar" id="profileAvatar">S</div>
+
+                        <div class="profile-info">
+                            <h6 id="studentName">Student</h6>
+                            <p>Student</p>
+                        </div>
+
+                        <i class="bi bi-chevron-down profile-arrow"></i>
+
+                    </button>
+
+                    <!-- PROFILE DROPDOWN -->
+                    <div class="profile-dropdown" id="profileDropdown">
+
+                        <div class="profile-dropdown-header">
+
+                            <div class="profile-avatar profile-dropdown-avatar" id="dropdownAvatar">
+                                S
+                            </div>
+
+                            <div>
+                                <h6 id="dropdownStudentName">Student</h6>
+                                <p>Student Account</p>
+                            </div>
+
+                        </div>
+
+                        <div class="profile-dropdown-divider"></div>
+
+                        <button type="button" class="profile-menu-item" id="viewProfileButton">
+                            <i class="bi bi-person"></i>
+                            <span>View Profile</span>
+                        </button>
+
+                        <button type="button" class="profile-menu-item" id="changePictureButton">
+                            <i class="bi bi-camera"></i>
+                            <span>Change Profile Picture</span>
+                        </button>
+
+                        <a href="student-settings.html" class="profile-menu-item">
+                            <i class="bi bi-pencil-square"></i>
+                            <span>Edit Profile</span>
+                        </a>
+
+                        <a href="student-settings.html" class="profile-menu-item">
+                            <i class="bi bi-gear"></i>
+                            <span>Settings</span>
+                        </a>
+
+                        <div class="profile-dropdown-divider"></div>
+
+                        <button type="button" class="profile-menu-item profile-logout" id="profileLogoutButton">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Log Out</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- PROFILE PICTURE INPUT -->
+                <input type="file" id="profilePictureInput" accept="image/*" hidden>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE BANNER -->
+        <section class="calendar-banner">
+
+            <div>
+                <p class="banner-label">STAY ORGANIZED</p>
+                <h2>Plan Your Days!</h2>
+                <p>Keep track of your study schedule, personal events and important reminders.</p>
+            </div>
+
+            <div class="banner-icon">
+                <i class="bi bi-calendar-heart"></i>
+            </div>
+
+        </section>
+
+
+        <!-- CALENDAR SUMMARY -->
+        <section class="summary-grid">
+
+            <div class="summary-card">
+                <div class="summary-icon pink-icon">
+                    <i class="bi bi-calendar-event"></i>
+                </div>
+                <div>
+                    <p>Total Events</p>
+                    <h3 id="totalEvents">0</h3>
+                    <small>Your saved events</small>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-icon purple-icon">
+                    <i class="bi bi-clock"></i>
+                </div>
+                <div>
+                    <p>Upcoming Events</p>
+                    <h3 id="upcomingEvents">0</h3>
+                    <small>From today onwards</small>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-icon peach-icon">
+                    <i class="bi bi-calendar-check"></i>
+                </div>
+                <div>
+                    <p>Today's Events</p>
+                    <h3 id="todayEvents">0</h3>
+                    <small>Scheduled for today</small>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- CALENDAR CONTENT -->
+        <section class="calendar-layout">
+
+            <!-- MONTHLY CALENDAR -->
+            <div class="calendar-panel">
+
+                <div class="calendar-heading">
+
+                    <div>
+                        <h4 id="monthYear">November 2026</h4>
+                        <p>Select a date to view your schedule.</p>
+                    </div>
+
+                    <button class="today-btn" id="todayButton" type="button">
+                        Today
+                    </button>
+
+                </div>
+
+
+                <!-- CALENDAR NAVIGATION -->
+                <div class="calendar-navigation">
+
+                    <button id="previousMonth" class="nav-arrow" type="button" aria-label="Previous Month">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+
+                    <h5 id="calendarMonth">November 2026</h5>
+
+                    <button id="nextMonth" class="nav-arrow" type="button" aria-label="Next Month">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+
+                </div>
+
+
+                <!-- CALENDAR GRID -->
+                <div class="calendar-weekdays">
+                    <span>MON</span>
+                    <span>TUE</span>
+                    <span>WED</span>
+                    <span>THU</span>
+                    <span>FRI</span>
+                    <span>SAT</span>
+                    <span>SUN</span>
+                </div>
+
+                <div class="calendar-grid" id="calendarGrid">
+                    <!-- Calendar dates generated by JavaScript -->
+                </div>
+
+
+                <!-- LEGEND -->
+                <div class="calendar-legend">
+
+                    <span>
+                        <i class="legend-dot today-dot"></i>
+                        Today
+                    </span>
+
+                    <span>
+                        <i class="legend-dot event-dot"></i>
+                        Has events
+                    </span>
+
+                    <span>
+                        <i class="legend-dot selected-dot"></i>
+                        Selected date
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- EVENT PANEL -->
+            <div class="event-panel">
+
+                <div class="event-heading">
+
+                    <div>
+                        <h4>My Events</h4>
+                        <p id="selectedDateText">Select a date</p>
+                    </div>
+
+                    <button class="add-event-btn" id="addEventButton" type="button">
+                        <i class="bi bi-plus-lg"></i>
+                        Add Event
+                    </button>
+
+                </div>
+
+
+                <!-- SELECTED DATE EVENTS -->
+                <div id="selectedEvents" class="selected-events">
+                    <!-- Events generated by JavaScript -->
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- UPCOMING EVENTS -->
+        <section class="upcoming-panel">
+
+            <div class="section-heading">
+                <div>
+                    <h4>Upcoming Events</h4>
+                    <p>Don't forget your important activities.</p>
+                </div>
+            </div>
+
+            <div id="upcomingList" class="upcoming-list">
+                <!-- Upcoming events generated by JavaScript -->
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="dashboard-footer">
+            <p>© 2026 EG Academic Management System. All Rights Reserved.</p>
+        </footer>
+
+
+        <!-- VIEW STUDENT PROFILE MODAL -->
+        <div class="profile-modal-overlay" id="profileModal">
+
+            <div class="profile-modal">
+
+                <button type="button" class="profile-modal-close" id="closeProfileModal" aria-label="Close Profile Modal">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+
+                <div class="profile-modal-heading">
+
+                    <div class="profile-modal-avatar" id="modalProfileAvatar">S</div>
+
+                    <h4 id="modalStudentName">Student</h4>
+                    <p>Student Profile</p>
+
+                </div>
+
+                <div class="profile-modal-details">
+
+                    <div class="profile-detail">
+                        <span>Full Name</span>
+                        <strong id="viewFullName">-</strong>
+                    </div>
+
+                    <div class="profile-detail">
+                        <span>Username</span>
+                        <strong id="viewUsername">-</strong>
+                    </div>
+
+                    <div class="profile-detail">
+                        <span>Student ID</span>
+                        <strong id="viewStudentId">-</strong>
+                    </div>
+
+                    <div class="profile-detail">
+                        <span>Email Address</span>
+                        <strong id="viewEmail">-</strong>
+                    </div>
+
+                    <div class="profile-detail">
+                        <span>Phone Number</span>
+                        <strong id="viewPhone">-</strong>
+                    </div>
+
+                    <div class="profile-detail">
+                        <span>Programme</span>
+                        <strong id="viewProgram">-</strong>
+                    </div>
+
+                </div>
+
+                <a href="student-settings.html" class="profile-edit-button">
+                    <i class="bi bi-pencil-square"></i>
+                    Edit Profile
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- ADD / EDIT EVENT MODAL -->
+<div class="modal fade" id="eventModal" tabindex="-1" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content event-modal">
+
+            <div class="modal-header">
+
+                <div>
+                    <h5 class="modal-title" id="modalTitle">Add New Event</h5>
+                    <p class="modal-subtitle">Fill in your event information.</p>
+                </div>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+            </div>
+
+
+            <form id="eventForm">
+
+                <div class="modal-body">
+
+                    <input type="hidden" id="eventId">
+
+                    <div class="mb-3">
+                        <label for="eventName" class="form-label">Event Name</label>
+                        <input type="text" class="form-control" id="eventName"
+                            placeholder="e.g. Study Session" maxlength="80" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="eventDate" class="form-label">Date</label>
+                        <input type="date" class="form-control" id="eventDate" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="eventTime" class="form-label">Time</label>
+                        <input type="time" class="form-control" id="eventTime">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="eventCategory" class="form-label">Category</label>
+                        <select class="form-select" id="eventCategory" required>
+                            <option value="Study">Study</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Reminder">Reminder</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="eventDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="eventDescription"
+                            rows="3" placeholder="Add some details (optional)" maxlength="300"></textarea>
+                    </div>
+
+                </div>
+
+
+                <div class="modal-footer">
+
+                    <button type="button" class="cancel-btn" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="save-event-btn" id="saveEventButton">
+                        Save Event
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- BOOTSTRAP JAVASCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- CALENDAR JAVASCRIPT -->
+<script src="js/calendar.js"></script>
+
+</body>
+</html>

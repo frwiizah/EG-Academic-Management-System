@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Settings</title>
+
+    <!-- Website Favicon -->
+    <link rel="icon" type="image/png" href="image/eg-favicon.png">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/student-settings.css">
+
+    <!-- Theme -->
+    <script src="js/theme.js"></script>
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">
+                <img src="image/eg-favicon.png" alt="EG Brand Icon">
+            </div>
+            <span>EG <small>Student Portal</small></span>
+        </div>
+
+        <div class="sidebar-menu">
+
+            <p class="menu-title">MENU</p>
+
+            <a href="student-dashboard.html" class="menu-link">
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="my-courses.html" class="menu-link">
+                <i class="bi bi-book"></i>
+                <span>My Courses</span>
+            </a>
+
+            <a href="calendar.html" class="menu-link">
+                <i class="bi bi-calendar3"></i>
+                <span>Calendar</span>
+            </a>
+
+            <a href="student-assignments.html" class="menu-link">
+                <i class="bi bi-file-earmark-text"></i>
+                <span>Assignments</span>
+            </a>
+
+            <a href="performance.html" class="menu-link">
+                <i class="bi bi-bar-chart"></i>
+                <span>My Performance</span>
+            </a>
+
+            <a href="student-settings.html" class="menu-link active">
+                <i class="bi bi-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- MOBILE SIDEBAR OVERLAY -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle Menu">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div>
+                    <h5>Settings</h5>
+                    <p>Manage your student account and preferences.</p>
+                </div>
+
+            </div>
+
+            <div class="topbar-right">
+
+                <!-- NOTIFICATION -->
+                <div class="notification-wrapper">
+
+                    <button class="notification-btn" id="notificationButton" type="button" aria-label="Notifications">
+                        <i class="bi bi-bell"></i>
+                        <span id="notificationBadge"></span>
+                    </button>
+
+                    <div class="notification-panel" id="notificationPanel">
+
+                        <div class="notification-header">
+
+                            <div>
+                                <h6>Notifications</h6>
+                                <p id="notificationCount">You have no new notifications</p>
+                            </div>
+
+                            <button type="button" id="markAllRead">
+                                Mark all as read
+                            </button>
+
+                        </div>
+
+                        <div class="notification-list" id="topbarNotificationList">
+                        </div>
+
+                        <div class="notification-empty" id="notificationEmpty" hidden>
+                            <i class="bi bi-bell-slash"></i>
+                            <p>No notifications yet.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- STUDENT PROFILE -->
+                <div class="profile-wrapper">
+
+                    <button class="profile profile-trigger" id="profileButton" type="button">
+
+                        <div class="profile-avatar" id="profileAvatar">S</div>
+
+                        <div class="profile-info">
+                            <h6 id="studentName">Student</h6>
+                            <p>Student</p>
+                        </div>
+
+                        <i class="bi bi-chevron-down profile-arrow"></i>
+
+                    </button>
+
+
+                    <!-- PROFILE DROPDOWN -->
+                    <div class="profile-dropdown" id="profileDropdown">
+
+                        <div class="profile-dropdown-header">
+
+                            <div class="profile-avatar profile-dropdown-avatar" id="dropdownAvatar">
+                                S
+                            </div>
+
+                            <div>
+                                <h6 id="dropdownStudentName">Student</h6>
+                                <p>Student Account</p>
+                            </div>
+
+                        </div>
+
+                        <div class="profile-dropdown-divider"></div>
+
+                        <button type="button" class="profile-menu-item" id="viewProfileButton">
+                            <i class="bi bi-person"></i>
+                            <span>View Profile</span>
+                        </button>
+
+                        <button type="button" class="profile-menu-item" id="changePictureButton">
+                            <i class="bi bi-camera"></i>
+                            <span>Change Profile Picture</span>
+                        </button>
+
+                        <a href="#profileSection" class="profile-menu-item" id="dropdownEditProfile">
+                            <i class="bi bi-pencil-square"></i>
+                            <span>Edit Profile</span>
+                        </a>
+
+                        <a href="#accountSection" class="profile-menu-item" id="dropdownSettings">
+                            <i class="bi bi-gear"></i>
+                            <span>Settings</span>
+                        </a>
+
+                        <div class="profile-dropdown-divider"></div>
+
+                        <button type="button" class="profile-menu-item profile-logout" id="profileLogoutButton">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Log Out</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- PROFILE PICTURE INPUT -->
+                <input type="file" id="profilePictureInput" accept="image/*" hidden>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE CONTENT -->
+        <div class="page-content">
+
+            <!-- PAGE BANNER -->
+            <section class="settings-banner">
+
+                <div>
+                    <span>ACCOUNT MANAGEMENT</span>
+                    <h2>Settings & Preferences ⚙️</h2>
+                    <p>Manage your personal information and keep your account up to date.</p>
+                </div>
+
+                <div class="banner-icon">
+                    <i class="bi bi-person-gear"></i>
+                </div>
+
+            </section>
+
+
+            <!-- SETTINGS LAYOUT -->
+            <div class="settings-layout">
+
+                <!-- SETTINGS NAVIGATION -->
+                <div class="settings-navigation">
+
+                    <h6>SETTINGS MENU</h6>
+
+                    <a href="#profileSection" class="settings-nav-link active">
+                        <i class="bi bi-person"></i>
+                        <span>Profile Information</span>
+                    </a>
+
+                    <a href="#accountSection" class="settings-nav-link">
+                        <i class="bi bi-shield-lock"></i>
+                        <span>Account Security</span>
+                    </a>
+
+                    <a href="#notificationSection" class="settings-nav-link">
+                        <i class="bi bi-bell"></i>
+                        <span>Notifications</span>
+                    </a>
+
+                </div>
+
+
+                <!-- SETTINGS CONTENT -->
+                <div class="settings-content">
+
+
+                    <!-- PROFILE INFORMATION -->
+                    <section class="settings-card" id="profileSection">
+
+                        <div class="settings-card-heading">
+
+                            <div class="heading-icon pink-icon">
+                                <i class="bi bi-person"></i>
+                            </div>
+
+                            <div>
+                                <h4>Profile Information</h4>
+                                <p>Update your personal details.</p>
+                            </div>
+
+                        </div>
+
+
+                        <form id="profileForm">
+
+                            <div class="profile-picture-area">
+
+                                <div class="large-avatar" id="largeAvatar">
+                                    S
+                                </div>
+
+                                <div class="profile-picture-details">
+                                    <h6 id="profileDisplayName">Student Name</h6>
+                                    <p>Student Account</p>
+                                </div>
+
+                                <button type="button" class="cancel-button change-photo-btn" id="sectionChangePictureBtn">
+                                    <i class="bi bi-camera"></i> Change Picture
+                                </button>
+
+                            </div>
+
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+                                    <label for="fullName">Full Name</label>
+
+                                    <input type="text"
+                                           id="fullName"
+                                           class="form-control"
+                                           placeholder="Enter your full name"
+                                           required>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+
+                                    <input type="text"
+                                           id="username"
+                                           class="form-control"
+                                           readonly>
+
+                                    <small>Username cannot be changed here.</small>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+
+                                    <input type="email"
+                                           id="email"
+                                           class="form-control"
+                                           placeholder="Enter your email"
+                                           required>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="studentId">Student ID</label>
+
+                                    <input type="text"
+                                           id="studentId"
+                                           class="form-control"
+                                           placeholder="Enter your student ID">
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+
+                                    <input type="tel"
+                                           id="phone"
+                                           class="form-control"
+                                           placeholder="Enter your phone number">
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="program">Programme</label>
+
+                                    <input type="text"
+                                           id="program"
+                                           class="form-control"
+                                           placeholder="Enter your programme">
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-actions">
+
+                                <button type="reset" class="cancel-button" id="resetProfile">
+                                    Reset
+                                </button>
+
+                                <button type="submit" class="save-button">
+                                    <i class="bi bi-check2-circle"></i>
+                                    Save Changes
+                                </button>
+
+                            </div>
+
+                            <p class="form-message" id="profileMessage"></p>
+
+                        </form>
+
+                    </section>
+
+
+                    <!-- ACCOUNT SECURITY -->
+                    <section class="settings-card" id="accountSection">
+
+                        <div class="settings-card-heading">
+
+                            <div class="heading-icon purple-icon">
+                                <i class="bi bi-shield-lock"></i>
+                            </div>
+
+                            <div>
+                                <h4>Account Security</h4>
+                                <p>Change your account password.</p>
+                            </div>
+
+                        </div>
+
+
+                        <form id="passwordForm">
+
+                            <div class="form-group password-group">
+
+                                <label for="currentPassword">
+                                    Current Password
+                                </label>
+
+                                <input type="password"
+                                       id="currentPassword"
+                                       class="form-control"
+                                       placeholder="Enter your current password"
+                                       required>
+
+                            </div>
+
+
+                            <div class="form-grid">
+
+                                <div class="form-group password-group">
+
+                                    <label for="newPassword">
+                                        New Password
+                                    </label>
+
+                                    <input type="password"
+                                           id="newPassword"
+                                           class="form-control"
+                                           placeholder="Enter new password"
+                                           minlength="6"
+                                           required>
+
+                                </div>
+
+
+                                <div class="form-group password-group">
+
+                                    <label for="confirmPassword">
+                                        Confirm New Password
+                                    </label>
+
+                                    <input type="password"
+                                           id="confirmPassword"
+                                           class="form-control"
+                                           placeholder="Confirm new password"
+                                           minlength="6"
+                                           required>
+
+                                </div>
+
+                            </div>
+
+
+                            <p class="password-note">
+                                <i class="bi bi-info-circle"></i>
+                                Your new password must contain at least 6 characters.
+                            </p>
+
+
+                            <div class="form-actions">
+
+                                <button type="submit" class="save-button">
+                                    <i class="bi bi-lock"></i>
+                                    Update Password
+                                </button>
+
+                            </div>
+
+                            <p class="form-message" id="passwordMessage"></p>
+
+                        </form>
+
+                    </section>
+
+
+                    <!-- NOTIFICATION PREFERENCES -->
+                    <section class="settings-card" id="notificationSection">
+
+                        <div class="settings-card-heading">
+
+                            <div class="heading-icon peach-icon">
+                                <i class="bi bi-bell"></i>
+                            </div>
+
+                            <div>
+                                <h4>Notification Preferences</h4>
+                                <p>Choose which updates you want to receive.</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="notification-list">
+
+
+                            <div class="notification-item">
+
+                                <div>
+                                    <h6>Assignment Notifications</h6>
+                                    <p>Receive updates about new assignments and deadlines.</p>
+                                </div>
+
+                                <label class="switch">
+                                    <input type="checkbox" id="assignmentNotification">
+                                    <span class="switch-slider"></span>
+                                </label>
+
+                            </div>
+
+
+                            <div class="notification-item">
+
+                                <div>
+                                    <h6>Course Announcements</h6>
+                                    <p>Stay updated with important course announcements.</p>
+                                </div>
+
+                                <label class="switch">
+                                    <input type="checkbox" id="announcementNotification">
+                                    <span class="switch-slider"></span>
+                                </label>
+
+                            </div>
+
+
+                            <div class="notification-item">
+
+                                <div>
+                                    <h6>Lecturer Feedback</h6>
+                                    <p>Receive updates when lecturers provide feedback.</p>
+                                </div>
+
+                                <label class="switch">
+                                    <input type="checkbox" id="feedbackNotification">
+                                    <span class="switch-slider"></span>
+                                </label>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="form-actions">
+
+                            <button type="button" class="save-button" id="saveNotifications">
+                                <i class="bi bi-check2-circle"></i>
+                                Save Preferences
+                            </button>
+
+                        </div>
+
+                        <p class="form-message" id="notificationMessage"></p>
+
+                    </section>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- FOOTER -->
+            <footer>
+                © 2026 EG Academic Management System. All Rights Reserved.
+            </footer>
+
+        </div>
+
+
+        <!-- VIEW STUDENT PROFILE MODAL -->
+        <div class="profile-modal-overlay" id="profileModal">
+
+            <div class="profile-modal">
+
+                <button type="button" class="profile-modal-close" id="closeProfileModal" aria-label="Close Profile Modal">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+
+                <div class="profile-modal-heading">
+
+                    <div class="profile-modal-avatar" id="modalProfileAvatar">S</div>
+
+                    <h4 id="modalStudentName">Student</h4>
+                    <p>Student Profile</p>
+
+                </div>
+
+
+                <div class="profile-modal-details">
+
+                    <div class="profile-detail">
+                        <span>Full Name</span>
+                        <strong id="viewFullName">-</strong>
+                    </div>
+
+                    <div class="profile-detail">
+                        <span>Username</span>
+                        <strong id="viewUsername">-</strong>
+                    </div>
+
+                    <div class="profile-detail">
+                        <span>Student ID</span>
+                        <strong id="viewStudentId">-</strong>
+                    </div>
+
+                    <div class="profile-detail">
+                        <span>Email Address</span>
+                        <strong id="viewEmail">-</strong>
+                    </div>
+
+                    <div class="profile-detail">
+                        <span>Phone Number</span>
+                        <strong id="viewPhone">-</strong>
+                    </div>
+
+                    <div class="profile-detail">
+                        <span>Programme</span>
+                        <strong id="viewProgram">-</strong>
+                    </div>
+
+                </div>
+
+
+                <button type="button" class="profile-edit-button" id="modalEditProfileBtn">
+                    <i class="bi bi-pencil-square"></i>
+                    Edit Profile
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- CUSTOM JS -->
+<script src="js/student-settings.js"></script>
+
+</body>
+</html>
